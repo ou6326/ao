@@ -10,7 +10,6 @@ import torch
 
 from torchao.prototype.mx_formats.constants import SUPPORTED_ELEM_DTYPES
 from torchao.quantization.quantize_.common.kernel_preference import KernelPreference
-from torchao.utils import register_as_pytree_constant
 
 
 class MXFP8Dim0CastKernelChoice(Enum):
@@ -34,7 +33,6 @@ class MXFP8Dim1CastKernelChoice(Enum):
 
 
 # register as pytree constant so we can use dynamo nonstrict trace in torchao.prototype.moe_training.ep
-@register_as_pytree_constant
 class ScaleCalculationMode(Enum):
     """
     Enum representing the different methods for calculating MX block scaling.
